@@ -49,12 +49,7 @@
 
 \begin{document}
 
-
-\renewcommand{\thechapter}{\Roman{chapter}} 
-\renewcommand{\thesection}{\Roman{section}}
-\renewcommand{\thesubsection}{\Roman{subsection}}
 \renewcommand{\contentsname}{Sommaire}
-\renewcommand{\thesubsubsection}{\Roman{subsubsection}}
 
 
 \maketitle
@@ -75,91 +70,65 @@
 
 
  
-\chapter{Analyse et conception}
+\chapter{Analyse}
 
 
-\section{Problématiques à résoudre}
+\section{Etat de l'existant}
+
+\section{Analyse des besoins}
 
 
 \subsection{Ergonomie}
 
-L’ergonomie logicielle est une nécessité pour l’utilisateur afin d'améliorer l'interaction homme-machine et de facilité l’utilisation du programme. Stat’n Dat se doit donc de répondre à ce besoin par l’implémentation d’une interface claire et simple. Cela permettra à l'utilisateur d’être plus rapide dans l’exécution des tâches et plus efficaces dans le choix des options à utiliser.  graphique. 
-
-% \subsubsection{De manière générale}
-
-% \begin{itemize}
-
-% \item •	Permettre l'accès à des pages d'informations sur le logiciel : outil aide
-
-
-% \end{itemize}
-
+L’ergonomie logicielle est une nécessité pour l’utilisateur afin d’améliorer l’interaction homme machine et faciliter l’utilisation du programme. Stat’nDat se doit donc de répondre à ce besoin par l’implémentation d’une interface claire et simple. Cela permettra à l’utilisateur d’être plus rapide dans l’exécution des tâches et plus efficace dans le choix des options à utiliser. 
 
 \subsubsection{Sélection de données}
 
-La sélection des données est un partie importante du projet puisqu'elle va permettre d'axer les analyses statistiques effectuées en suivant. Pour permettre une manipulation aisée des données et leur sélection le projet nécessite certaines fonctionnalités :\\
+La sélection des données est une partie importante du projet puisqu’elle va permettre d’axer les analyses statistiques effectuées en suivant. De même c’est un atout pour ergonomique pour l’utilisateur qui peut avoir un aperçu de ce qu’il sélectionne dans sa base de données. Par ailleurs, la visualisation est indispensable puisqu’elle lui permet d’être sûr de ce qu’il a obtenu plutôt que d’effectuer une analyse sur des données inappropriées. \\
 
-\begin{itemize}
+C’est dans ce but, et pour permettre une manipulation aisée des données ainsi que leur sélection, que ce projet nécessite certaines fonctionnalités.\\
+Suivant l’idée d’une ergonomie logicielle efficace à l’accès aux données, notre projet doit proposer un outil permettant d’inscrire directement les requêtes SQL pour extraire de la base les données désirées. Cet outil doit donc pouvoir se connecter à la base de données et faire le lien entre l’entrée donnée par l’utilisateur et l’entrée standard du SGBD. \\
 
-\item Une fenêtre permettant l'utilisation des requêtes SQL directement :\\ Suivant l'idée d'une ergonomie logicielle efficace et d'une modularité quant à l'accès aux données, notre projet doit proposer un outils permettant d'inscrire directement les requêtes SQL pour extraire de la base les données désirées.
+L’extraction des données peut générer des erreurs. En effet, une requête SQL erronée peut, si elle n’est pas gérée, provoquer un arrêt ou un dysfonctionnement impromptu du programme. C’est pourquoi il est indispensable de prévoir ces erreurs humaines et d’implémenter un affichage clair et concis pour en informer l’utilisateur. Tout ceci devra bien entendu se faire avant l’envoi de la requête sur l’entrée standard du SGBD, de sortes à éviter les calculs inutile de notre application.\\
 
-\item Une vérification syntaxique en cas d'erreur :\\ 
-L'extraction des données peut générer des erreurs. En effet, une requête SQL erronée peut, si elle n'est pas gérée, provoquer l'arrêt du impromptue du programme. C'est pourquoi il est indispensable de prévoir ces erreurs et d'implémenter un affichage clair et concis pour en informer l'utilisateur.
+Pour permettre une manipulation efficace des données, Stat’n Dat doit proposer un affichage simple du résultat de la requête envoyée. Un tableau reste la méthode d’affichage visuel la plus performante en ce qui concerne les grands nombres de données brutes. C’est dans ce cadre qu’il faut pouvoir implémenter cet affichage à notre application. \\
 
-% \item •	Une requête "routine" : la rendre accessible facilement
+La requête SQL effectuée, les données extraites visualisées, il est possible que certaines valeurs ne  soient pas nécessaires. C’est pourquoi Stat’nDat doit donner la possibilité à l’utilisateur de sur-sélectionner ses données (dans le tableau récapitulatif par exemple). Cet outil permettra d’affiner les données à traiter à sa guise.\\
 
-\item Une visualisation claire des données sous forme de tableau :\\
-Pour permettre une manipulation efficace des données, Stat'n Dat doit proposer un affichage simple du résultat de la requête envoyée. Dans ce cadre-ci un tableau reprenant l'ensemble des données extraites doit être implémenté résumant ainsi les données à traiter. 
-%•	Pouvoir revenir sur son choix de sélection des données -->
-\item Une modification simple de la sélection des données :\\
-La requête SQL effectuée, les données extraites visualisées, il est possible que certaines valeurs ne soient pas nécessaires. C'est pourquoi Stat'n Dat doit proposer une fonctionnalité de sur-sélection des données (dans le tableau récapitulatif par exemple). Cet outil permettra d'affiner les données à traiter.
-
-\item •	Outil de suppression de ligne de données / Tri
-
-\item Permettre l'exception de certains sujets dits "à biais" :\\
-La manipulation de données dans le cadre statistiques peut engendrer des aberrations de calculs.
-
-\end{itemize}
+Dans le même esprit, les manipulations pratiques effectuées en amont ne suivent jamais la loi de la perfection. Parmi les données, certaines d’entre elles seront erronées ou biaisée et leur manipulation dans un cadre statistique peut engendrer des aberrations de calculs. C’est pourquoi il faudra que l’application comprenne de quoi mettre ces biais de côté.
 
 
 \subsubsection{Analyse des données}
 
-Stat'n Dat propose d'extraire des données d'une base SQL et d'offrir un panel de tests statistiques. Toujours de le soucis d'une ergonomie travaillée et facile d'accès l'interface proposera :\\
+Stat’n Dat propose d’extraire des données d’une base SQL et d’offrir un panel de tests statistiques. \\
+Toujours dans le souci d’une ergonomie travaillée et facile d’accès l’interface proposera un accès rapide aux tests statistiques. En effet, l’accès aux fonctions principales d’un logiciel est une part importante de son ergonomie. C’est pourquoi il est indispensable de proposer une identification visuelle et claire des différents tests et graphiques proposés par Stat’n Dat.\\
+
+En vue d’informer l’utilisateur efficacement, le programme devra également proposer une identification claire ainsi qu’un descriptif rapide et informatif pour chaque test et chaque graphique.\\
+
+Les résultats des tests statistiques peuvent donner lieu à différentes représentations. Certaines permettent d’extraire plus d’informations et sont plus aisées à interpréter. C’est pourquoi Stat’n Dat devra proposer un accès facile entre les différentes représentations (courbes, nuage de points, histogrammes). Par ailleurs, l’utilisateur pourra sélectionner des paramètres précis selon des choix de couleurs, taille, pas, superposition etc… \\
+
+Les tests statistiques ont, pour la plupart, des conditions d’utilisation. En effet, certains tests statistiques nécessitent un échantillon suffisamment important, ou l’application d’une loi normale sur l’échantillon (pour ne citer que ces exemples). Notre outil devra déceler s’il existe des erreurs dans les paramètres passés aux tests statistiques tels qu’un défaut de taille d’échantillons entre deux sélections ou encore une entrée manquante.
+
+\subsubsection{Rapport et synthèse}
 
 \begin{itemize}
 
-\item Un accès rapide aux tests statistiques :\\
-L'accès aux fonctions principales d'un logiciel est une part importante de son ergonomie. C'est pourquoi il est indispensable de proposer une identification visuelle et claire des différents tests et graphiques proposés par Stat'n Dat. 
+\item 	•	Automatisation d’une rédaction
+\item 	•	Plusieurs types de rapports pdf
+\item 	•	Un fichier .log
 
-\item La définition des tests statistiques :\\
-Dans un soucis d'informer l'utilisateur efficacement, le programme devra proposer une identification claire ainsi qu'un descriptif rapide et informatif de chaque test et graphique.
+\end{itemize} 
 
-% \item •	Tests paramétriques ou non --> Paramètres faciles à préciser :\\
-% Dans le cadres des tests paramétriques
+La génération automatique d'un rapport reprenant les différents éléments (données, résultats des tests statistiques, graphiques) choisis par l'utilisateur doit être implémentée. Cette fonctionnalité fait partie des éléments essentiels propre à notre programme. L'utilisateur doit avoir la possibilité de choisir ce qui figurera dans le rapport PDF final.\\
 
-% \item •	Statistiques descriptives --> accès facile aux paramètres de population
-
-% \item •	Statistiques descriptives --> accès facile aux différentes modélisations de données, de base (les graphiques)
-
-\item La possibilité de modifier le type de représentation :\\
-Les résultats des tests statistiques peuvent donner lieu à différentes représentations. Certaines permettent d'extraire plus d'informations et sont plus aisées à interpréter. C'est pourquoi Stat'n Dat devra proposer un accès facile entre les différentes représentations (courbes, nuage de points, histogrammes).
-
-\item La levée d'exception lors du passage des paramètres des tests statistiques :\\
-Les tests statistiques ont, pour la plupart, des conditions d'utilisation. En effet, certains tests statistiques nécessite un échantillon suffisamment important, ou l'application d'une loi normale sur l'échantillon (pour ne citer que ces exemples). Notre outil devra déceler s'il existes des erreurs dans les paramètres passés aux tests statistiques.
-
-\end{itemize}
+Il nous semble important aussi d'implémenter la génération automatique d'un historique reprenant les différentes opérations effectuées par l'utilisateur. De la même façon il sera important de garder la trace des différentes requêtes SQL afin de créer une base de requête et facilité l'utilisation du programme.
 
 \subsection{Modularité}
 
-Dans le cadre de notre projet un accent sera mis sur la possibilité de modifier et d'améliorer les fonctionnalités offertes par le logiciel. C'est pourquoi la modularité est un point clé du projet. L'implémentation du programme doit être conçue autour de cette notion. Le code se devra d'être clair et très lisible. Ainsi l'ajout d'autres tests statistiques sera facilité. 
+Dans le cadre de notre projet un accent sera mis sur la possibilité de modifier et d'améliorer les fonctionnalités offertes par le logiciel. C'est pourquoi la modularité est un point clé du projet. L'implémentation du programme doit être conçue autour de cette notion. Le code se devra d'être clair et très lisible. Ainsi l'ajout d'autres tests statistiques sera facilité. \\
 
 La modularité comprend aussi la possibilité d'adapter le programme d'autres bases de données du système PostGreSQL.
 
-\subsection{Rapport et synthèse}
-
-La génération automatique d'un rapport reprenant les différents éléments (données, résultats des tests statistiques, graphiques) choisis par l'utilisateur doit être implémentée. Cette fonctionnalité fait partie des éléments essentiels propre à notre programme. L'utilisateur doit avoir la possibilité de choisir ce qui figurera dans le rapport PDF final.
-
-Il nous semble important aussi d'implémenter la génération automatique d'un historique reprenant les différentes opérations effectuées par l'utilisateur. De la même façon il sera important de garder la trace des différentes requêtes SQL afin de créer une base de requête et facilité l'utilisation du programme.
 
 \section{Conception du logiciel}
 
@@ -170,18 +139,6 @@ L'interface graphique aura pour but déjà de rendre l'outil plus agréable à l
 Cette interface sera dotée d'une barre d'outils et d’une barre de menu permettant à l'utilisateur un accès simple et rapide aux fonctions de base. \\
 
 La barre de menu donne donc accès à :
-
-\begin{itemize}
-
-\item Des requêtes de base avec le bouton « Requête ».
-
-\item Des tests statistiques et les résultats obtenus avec les différents boutons « Statistique » correspondant aux différents tests. 
-
-\item Différents types de graphiques grâce aux boutons correspondant aux différents types de graphiques.
-
-\item L’édition d’un rapport au format PDF des parties choisies par l'utilisateur avec le bouton « Edit ».
-
-\end{itemize} 
 
 La barre d’outil et ses différentes icônes, permet quant à elle de :
 
