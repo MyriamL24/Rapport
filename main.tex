@@ -30,7 +30,7 @@
   
   
 % Style de titre de section
-\titleformat{\section}[hang]{\bfseries\sc}{\Large\thesection}{1em}{}
+%\titleformat{\section}[hang]{\bfseries\sc}{\Large\thesection}{1em}{}
 
 
 % Mise en place du Sommaire
@@ -72,11 +72,63 @@
  
 \chapter{Analyse}
 
-
 \section{Etat de l'existant}
 
-\section{Analyse des besoins}
+En vue de pouvoir répondre à la problématique initiale, nous avons étudié les avantages et inconvénients de quelques logiciels déjà existants.
 
+\subsection{SAS-Statistical Analysis System}
+SAS est un logiciel portable complet qui couvre une large gamme des méthodes d’analyse en statistique. Se présentant sous la forme d’un ensemble de modules adaptés pour la gestion de données et l’analyse statistique, il permet de prendre en charge des volumes de données très importants, de l’ordre de plusieurs Go. \\
+	Il permet également la création de tableaux de bord KPI et donne la possibilité de programmer ses propres procédures ainsi qu’automatiser l’enchaînement de plusieurs traitements. \\
+	Les tableaux de bord KPI ont pour but de représenter sur un page un indicateur clé du suivi de l’activité d’une société. \\
+
+Au contraire, SAS étant un logiciel propriétaire et payant, il est connu pour son coût élevé d’une valeur de 2000 à 5000 \euro en fonction des éditions, pour les professionnels de l’industrie. Son coût est réduit pour les enseignants de l’Académie et il est gratuit pour les étudiants.\\
+Par ailleurs, son langage est peu avancé puisqu’il correspond en fait à une combinaison de plusieurs autres langages de programmation tels que IML ou SQL.
+De plus, ce logiciel, qui reste propriétaire, n'est pas open source.
+\\
+
+\subsection{SPSS Amos}
+Le logiciel AMOS (Analyse of Moment Structure) est un programme visuel qui utilise une interface clic-boutons. Il permet à des débutants qui ne connaissent pas le code informatique, de faire de la modélisation d’équations structurelles. \\
+
+Grâce à l’interface graphique de ce logiciel, couplé à la prise en charge des variables latentes, il est possible d’ajuster son modèle et d’en faire une impression de haute qualité. \\
+
+Parmi ses nombreux autres avantages, ce logiciel portable est également capable d’effectuer un traitement dit FIML pour Full Information Maximum Likelihood qui permet d’analyser, sans biais, des données même incomplètes. De même, il propose un florilège de tests parmi lesquels des tests de normalité multivariée, le maximum de vraisemblance, le bootstrap, la simulation de Monte Carlo etc. \\
+
+Cependant, ce logiciel reste payant, tout comme ses multiples extensions qui ne sont pas fournies avec.  \\
+
+\subsection{SosStat}
+SosStats se présente sous la forme d’un tableur, dédié aux professionnels de l’industrie qui ont peu ou pas vraiment d’expérience dans les statistiques. \\
+
+Parmi ses différentes fonctionnalités, son interface propose une zone dite de « projet » qui permet à l’utilisateur de visualiser la liste des analyses déjà effectuées avec le logiciel et permet à l’utilisateur de changer la langue s’il le souhaite.\\
+La quantité de données traitées ne dépend que la mémoire de l’ordinateur hôte, ce qui peut être utilise lorsque l’on est face à des giga octets de données. \\
+Les fonctionnalités proposées donnent la possibilité de faire toutes sortes d’analyses telles que des statistiques descriptives (histogramme ; boxplot ; matrice de corrélation ou détermination des paramètres de population), des tests de normalité (Kolmogorov ; Anderson Darling ; Shapiro-Wilk), des tests paramétriques ou non, des tests de proportions ou d’équivalence ainsi que des calculs de régression.\\
+
+
+Cependant, SosStat a un coût, même si celui-ci reste relativement faible comparé aux autres logiciels et l’import depuis une base de donnée ne concerne que les SGBD ODBC, SQLite et MySQL.\\
+Ce logiciel est par ailleurs non portable puisqu’il n’est actuellement disponible que pour les plate-forme Unix 64 bits et Windows 32 ou 64 bits.
+
+\subsection{Stata}
+
+Stata est un logiciel de statistiques et d’économétrie largement utilisé par les économistes et les épidémiologistes. Il est également utilisé par la communauté scientifique pour les recherches en médecine et biologie.\\
+
+Une des particularités de Stata par rapport à ses concurrents réside dans son développement guidé par les utilisateurs eux-mêmes. Il repose sur un noyau compilé qui comprend les principales instructions et qui peut éventuellement appeler des procédures annexes livrées en standard ou à télécharger sur les sites miroirs de Stata.\\ 
+Le programme est écrit en langage Stata, et les applicatifs sont développés par StataCorp ainsi que par les programmeurs enseignants, étudiants ou scientifiques. D'ailleurs, les packages sont our la plupart codés par la communauté des utilisateurs. \\
+
+Stata sert non seulement d’outil pour les statistiques, mais il sert également de générateur de graphiques, et de puissant gestionnaire de données. En effet, il permet de combiner et remodeler les ensembles de données. 
+Enfin, cet outil permet la modification et l'export des graphiques créés, en ESP ou TIF pour la publication, en PNG pour le web, ou en PDF pour la visualisation.\\
+
+Néanmoins, Stata reste payant, avec un coût relativement élevé.\\
+
+Tous ces logiciels très avancés sont malheureusement payants et non open source pour la plupart, ce qui ne nous permet pas de les reprendre te de les améliorer en vue des objectifs de notre clients. D’ailleurs la combinaison de langages informatique dont SAS fait l’objet renforce cette difficulté et la rend présente même si le logiciel était à l’heure actuelle open-source.\\
+
+De même, leurs fonctionnalités restent trop précises et trop nombreuses pour ce dont nous avons besoin, ce qui implique donc des logiciels parfois trop compliqués pour la manipulation ou la modification. \\
+
+Les tableaux de bord KPI de SAS sont certes intéressants pour une entreprise de taille importante qui doit quotidiennement rendre compte de ses résultats techniques, mais cette fonctionnalité reste sans intérêt dans notre cas puisqu’il n’y a pas lieu d’évaluer une quelconque rentabilité.\\
+
+De même, le logiciel AMOS semble plutôt avoir été conçu pour pouvoir effectuer des statistiques de grande envergure dans le cadre d’une étude poussée, faisant intervenir des modèles d’évolution complexes.\\
+
+Finalement, il nous faudrait un logiciel pratique d’utilisation, qui propose un moyen simple et efficace de sélectionner ses données, des statistiques de routines et un accès facile à la représentation visuelle des données. C’est aussi la raison pour laquelle nous souhaitons développer par nous-même l’outil idéal pour notre client.
+
+\section{Analyse des besoins}
 
 \subsection{Ergonomie}
 
@@ -109,19 +161,11 @@ Les résultats des tests statistiques peuvent donner lieu à différentes repré
 
 Les tests statistiques ont, pour la plupart, des conditions d’utilisation. En effet, certains tests statistiques nécessitent un échantillon suffisamment important, ou l’application d’une loi normale sur l’échantillon (pour ne citer que ces exemples). Notre outil devra déceler s’il existe des erreurs dans les paramètres passés aux tests statistiques tels qu’un défaut de taille d’échantillons entre deux sélections ou encore une entrée manquante.
 
-\subsubsection{Rapport et synthèse}
+La génération automatique d'un rapport reprenant les différents éléments (données, résultats des tests statistiques, graphiques) choisis par l'utilisateur doit être implémentée. Cette fonctionnalité fait partie des éléments essentiels propre à notre programme. L'utilisateur doit avoir la possibilité de choisir ce qui figurera dans le rapport PDF final et l'outil doit lui donner la possibilité d'ajouter chaque élément de la manière la plus simple et la plus rapide possible. \\
+Par ailleurs, l'utilisateur doit pouvoir faire ceci pour différents "modèles" de rapport qui différeront donc en fonction de leur sommaire.\\
 
-\begin{itemize}
-
-\item 	•	Automatisation d’une rédaction
-\item 	•	Plusieurs types de rapports pdf
-\item 	•	Un fichier .log
-
-\end{itemize} 
-
-La génération automatique d'un rapport reprenant les différents éléments (données, résultats des tests statistiques, graphiques) choisis par l'utilisateur doit être implémentée. Cette fonctionnalité fait partie des éléments essentiels propre à notre programme. L'utilisateur doit avoir la possibilité de choisir ce qui figurera dans le rapport PDF final.\\
-
-Il nous semble important aussi d'implémenter la génération automatique d'un historique reprenant les différentes opérations effectuées par l'utilisateur. De la même façon il sera important de garder la trace des différentes requêtes SQL afin de créer une base de requête et facilité l'utilisation du programme.
+Il nous semble important aussi d'implémenter la génération automatique d'un historique reprenant les différentes opérations effectuées par l'utilisateur. Cet historique des événements qui se présente sous la forme d'un fichier .log donnera la possibilité à l'utilisateur de voir la date et l'heure pour laquelle les actions sont exécutées par le logiciel ou par lui-même sur le logiciel. \\
+De la même façon il sera important de garder la trace des différentes requêtes SQL afin de créer une base de requête et faciliter l'utilisation du programme.
 
 \subsection{Modularité}
 
